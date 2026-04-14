@@ -1,1 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero to Client — Make Money Online With Web Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #171717;
+  --white: #ffffff;
+  --accent: #f0c040;
+  --accent2: #e0a800;
+  --muted: #888;
+  --border: rgba(255,255,255,0.07);
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--accent) !important;
+  color: #000 !important;
+  padding: 10px 24px;
+  font-weight: 700 !important;
+  border-radius: 4px;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(240,192,64,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(240,192,64,0.05) 0%, transparent 60%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(240,192,64,0.1);
+  border: 1px solid rgba(240,192,64,0.3);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 40px;
+  position: relative;
+  animation: fadeDown 0.7s ease both;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(48px, 10vw, 100px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  position: relative;
+  animation: fadeDown 0.7s ease 0.1s both;
+}
+
+.hero h1 .line2 {
+  color: var(--accent);
+  display: block;
+}
+
+.hero-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(13px, 2.5vw, 17px);
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  position: relative;
+  animation: fadeDown 0.7s ease 0.2s both;
+}
+
+.hero-desc {
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 52px;
+  position: relative;
+  animation: fadeDown 0.7s ease 0.3s both;
+}
+
+.hero-desc strong { color: var(--white); font-weight: 600; }
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  animation: fadeDown 0.7s ease 0.4s both;
+}
+
+.btn-main {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 20px 60px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-main:hover {
+  background: #ffd84d;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(240,192,64,0.3);
+}
+
+.btn-ghost {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.05);
+}
+
+.hero-note {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* STATS */
+.stats {
+  padding: 60px 40px;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stats-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 44px;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* SECTION */
+.section {
+  padding: 100px 24px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.section h2 span { color: var(--accent); }
+
+.section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 20px;
+}
+
+.section p strong { color: var(--white); font-weight: 600; }
+
+.big-quote {
+  background: var(--bg2);
+  border-left: 4px solid var(--accent);
+  padding: 32px 36px;
+  margin: 48px 0;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  border-radius: 0 8px 8px 0;
+}
+
+/* MODULES */
+.modules-wrap {
+  background: var(--bg2);
+  padding: 100px 24px;
+}
+
+.modules-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.modules-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 56px;
+}
+
+.module-card {
+  background: var(--bg3);
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 28px;
+  align-items: start;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.2s;
+}
+
+.module-card.visible { opacity: 1; transform: translateY(0); }
+.module-card:hover { background: #1e1e1e; }
+
+.mod-num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  background: rgba(240,192,64,0.1);
+  border: 1px solid rgba(240,192,64,0.2);
+  width: 48px; height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.mod-body h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.mod-body p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* INCLUDES */
+.includes-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.includes-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+
+.check {
+  width: 22px; height: 22px;
+  background: rgba(240,192,64,0.15);
+  border: 1px solid rgba(240,192,64,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+/* FOR WHO */
+.forwho-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.forwho-card {
+  background: var(--bg2);
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.forwho-card.yes { border-top: 3px solid var(--accent); }
+.forwho-card.no  { border-top: 3px solid rgba(255,255,255,0.1); }
+
+.forwho-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.forwho-card.yes h4 { color: var(--accent); }
+.forwho-card.no h4  { color: var(--muted); }
+
+.forwho-card ul { list-style: none; }
+
+.forwho-card ul li {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.forwho-card ul li:last-child { border-bottom: none; }
+.forwho-card.yes ul li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+.forwho-card.no  ul li::before { content: '✕'; color: var(--muted); flex-shrink: 0; }
+
+/* PRICING */
+.pricing-wrap {
+  background: var(--bg2);
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.pricing-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px 28px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.price-card:hover { transform: translateY(-4px); }
+
+.price-card.featured {
+  border-color: var(--accent);
+  background: linear-gradient(160deg, #1a1600 0%, var(--bg3) 60%);
+}
+
+.featured-badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.price-tier {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.price-amount {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 52px;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.price-amount sup {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--muted);
+  vertical-align: super;
+}
+
+.price-note-small {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.price-features {
+  list-style: none;
+  margin-bottom: 36px;
+}
+
+.price-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.4;
+}
+
+.price-features li:last-child { border-bottom: none; }
+.price-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+.btn-buy {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-buy-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+}
+
+.btn-buy-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-buy-main { background: var(--accent); color: #000; }
+.btn-buy-main:hover { background: #ffd84d; box-shadow: 0 8px 30px rgba(240,192,64,0.25); }
+
+/* FAQ */
+.faq-list {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faq-item { background: var(--bg2); border-radius: 8px; overflow: hidden; }
+
+.faq-q {
+  padding: 22px 28px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.faq-q:hover { background: rgba(255,255,255,0.04); }
+
+.faq-q .arrow {
+  width: 24px; height: 24px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: transform 0.3s, background 0.2s, border-color 0.2s;
+}
+
+.faq-item.open .faq-q .arrow {
+  transform: rotate(180deg);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 28px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.faq-item.open .faq-a { max-height: 300px; padding: 0 28px 24px; }
+
+/* FINAL */
+.final {
+  padding: 120px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(240,192,64,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.final h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 8vw, 80px);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.final h2 span { color: var(--accent); }
+.final p { font-size: 17px; color: rgba(255,255,255,0.55); margin-bottom: 48px; position: relative; }
+
+/* FOOTER */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--white); }
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .includes-list { grid-template-columns: 1fr; }
+  .forwho-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .module-card { grid-template-columns: 1fr; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Zero<span>ToClient</span></a>
+  <ul class="nav-links">
+    <li><a href="#course">Course</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#pricing" class="nav-cta">Get Access — €19</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">Web Design · Online Business · Real Income</div>
+  <h1>
+    Make Money Online
+    <span class="line2">With Web Design</span>
+  </h1>
+  <p class="hero-sub">By Marios — 19 Years Old · University Student · Business Owner</p>
+  <p class="hero-desc">
+    I built a <strong>web design business from zero</strong> — no degree, no connections, no startup capital.<br>
+    Just a skill, a system, and the first client that changed everything.<br><br>
+    This course is the exact roadmap I followed.
+  </p>
+  <div class="hero-cta-group">
+    <a href="#pricing" class="btn-main">Get Instant Access</a>
+    <a href="#course" class="btn-ghost">See What's Inside</a>
+    <p class="hero-note">Starting from €19 · One-time payment · No subscriptions</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">€3,200+</div>
+      <div class="stat-label">Revenue generated through web design</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Real client projects completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Core modules — zero filler content</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">€0</div>
+      <div class="stat-label">Starting capital needed to begin</div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section">
+  <span class="section-tag">The Story</span>
+  <h2>Why Trust A <span>19-Year-Old?</span></h2>
+  <p>
+    Most people selling online courses have never actually done what they're teaching.
+    I'm not one of them. I'm a university student who started building websites, reached out to real businesses, and turned that into a <strong>real income stream — while studying.</strong>
+  </p>
+  <p>
+    I didn't have an advantage. No rich parents. No network. No head start.
+    I figured out that every single business on earth needs a website — and most of those websites are either bad or missing entirely. <strong>That gap is your opportunity.</strong>
+  </p>
+  <div class="big-quote">
+    "I'm not a guru with a private jet. I'm 19, I built something real, and I'm showing you exactly how I did it — before I forget what it felt like to start from zero."
+  </div>
+  <p>
+    Web design is still one of the best entry-point businesses you can start today.
+    Low barrier. High demand. You can land your first paid client in under 30 days with the right system.
+  </p>
+</section>
+
+<!-- MODULES -->
+<div class="modules-wrap" id="course">
+  <div class="modules-inner">
+    <span class="section-tag">What's Inside</span>
+    <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,6vw,56px);line-height:1.05;letter-spacing:-0.02em;text-transform:uppercase;">5 Modules. <span style="color:var(--accent)">No Filler.</span></h2>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="mod-num">01</div>
+        <div class="mod-body">
+          <h3>The Mindset Shift</h3>
+          <p>Most people wait until they're "ready." They study for months, build nothing, earn nothing. Your first client doesn't care about your degree — they care if you can solve their problem. This module kills the waiting game permanently.</p>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="mod-num">02</div>
+        <div class="mod-body">
+          <h3>Build Your First Website</h3>
+          <p>No coding degree needed. The exact tools I use to build professional websites fast — beginner-friendly but producing results that look expensive. You'll have a real portfolio piece within days, not months.</p>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="mod-num">03</div>
+        <div class="mod-body">
+          <h3>Find Your First Client</h3>
+          <p>Where to look, what to say, how to follow up. The exact outreach system I used to land my first paying client as a complete unknown — no followers, no reputation, no referrals.</p>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="mod-num">04</div>
+        <div class="mod-body">
+          <h3>Close the Deal</h3>
+          <p>How to price yourself, handle objections, and collect payment without feeling awkward about money. Most beginners lose clients at this exact stage — this module walks you through it step by step.</p>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="mod-num">05</div>
+        <div class="mod-body">
+          <h3>Deliver & Scale</h3>
+          <p>How to deliver cleanly, get a 5-star testimonial, and turn one client into three. This is how you build real momentum instead of starting from scratch after every project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INCLUDES -->
+<section class="section">
+  <span class="section-tag">Included</span>
+  <h2>Everything You <span>Need To Start</span></h2>
+  <p>One payment. Instant access. No upsells hidden inside.</p>
+  <ul class="includes-list">
+    <li><span class="check">✓</span> 5 in-depth PDF modules — structured, no filler</li>
+    <li><span class="check">✓</span> Video walkthrough for each module</li>
+    <li><span class="check">✓</span> My exact outreach DM templates</li>
+    <li><span class="check">✓</span> Pricing guide — what to charge as a beginner</li>
+    <li><span class="check">✓</span> Full tool stack I personally use</li>
+    <li><span class="check">✓</span> Client communication scripts</li>
+    <li><span class="check">✓</span> Portfolio setup guide</li>
+    <li><span class="check">✓</span> Lifetime access — download and keep forever</li>
+  </ul>
+</section>
+
+<!-- FOR WHO -->
+<section class="section">
+  <span class="section-tag">Is This For You?</span>
+  <h2>Be <span>Honest</span> With Yourself</h2>
+  <div class="forwho-grid">
+    <div class="forwho-card yes">
+      <h4>✦ This is for you</h4>
+      <ul>
+        <li>You're 17–25 and want income that doesn't depend on a boss</li>
+        <li>You're willing to put in 2–4 weeks of real work</li>
+        <li>You want a skill that pays, not just theory</li>
+        <li>You're starting from zero and need a proven system</li>
+      </ul>
+    </div>
+    <div class="forwho-card no">
+      <h4>— Not for you</h4>
+      <ul>
+        <li>You want to get rich overnight with zero effort</li>
+        <li>You already have clients and a working outreach system</li>
+        <li>You're looking for a passive income magic trick</li>
+        <li>You won't actually take action after watching</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="pricing-wrap" id="pricing">
+  <div class="pricing-inner">
+    <span class="section-tag">Pricing</span>
+    <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,6vw,56px);line-height:1.05;letter-spacing:-0.02em;text-transform:uppercase;margin-bottom:12px;">Simple. <span style="color:var(--accent)">Fair.</span></h2>
+    <p style="color:var(--muted);font-size:16px;">One-time payment. No subscriptions. No hidden fees.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount"><sup>€</sup>19</div>
+        <div class="price-note-small">One-time · Instant access</div>
+        <ul class="price-features">
+          <li>All 5 PDF modules</li>
+          <li>Video walkthroughs</li>
+          <li>Outreach DM templates</li>
+          <li>Tool stack guide</li>
+          <li>Lifetime access</li>
+        </ul>
+        <a href="#" class="btn-buy btn-buy-ghost">Buy Now</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="price-tier">Pro Builder</div>
+        <div class="price-amount"><sup>€</sup>49</div>
+        <div class="price-note-small">One-time · Instant access</div>
+        <ul class="price-features">
+          <li>Everything in Starter</li>
+          <li>Pricing & proposal templates</li>
+          <li>Client communication scripts</li>
+          <li>Portfolio setup guide</li>
+          <li>Future updates included</li>
+        </ul>
+        <a href="#" class="btn-buy btn-buy-main">Buy Now</a>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <span class="section-tag">FAQ</span>
+  <h2>Questions <span>Answered</span></h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Do I need coding experience to start? <span class="arrow">▾</span></div>
+      <div class="faq-a">No. The tools I use in this course require zero coding knowledge. You'll build professional websites using modern no-code builders that clients can't tell apart from custom-coded sites.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How fast can I land my first client? <span class="arrow">▾</span></div>
+      <div class="faq-a">If you follow the outreach system in Module 3 consistently, most people land their first client within 2–4 weeks. Speed depends on how many businesses you contact and how closely you follow the system.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How much money can I realistically make? <span class="arrow">▾</span></div>
+      <div class="faq-a">A beginner typically charges €300–€800 per website. At 2 clients per month — which is very achievable — that's €600–€1,600 in your first months. As you build portfolio and reputation, you raise your prices.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What format is the course in? <span class="arrow">▾</span></div>
+      <div class="faq-a">5 structured PDF modules + video walkthroughs for each one. Immediate download access after purchase. No platform login required — it's yours forever.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a refund policy? <span class="arrow">▾</span></div>
+      <div class="faq-a">Due to the digital nature of the product, all sales are final. At €19 for the Starter tier, this is a low-risk entry. Questions before buying? Reach out on Instagram @mgvoid.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">You're 19 — why should I trust you? <span class="arrow">▾</span></div>
+      <div class="faq-a">Fair question. I'm not selling a dream — I'm selling the exact system I used to build a real web design business while studying at university. Real client projects. Real invoices. Real results. This course is what I wish existed when I started.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <h2>Stop Waiting.<br><span>Start Earning.</span></h2>
+  <p>The only difference between you and someone making money online is the system.</p>
+  <a href="#pricing" class="btn-main">Get Zero to Client Now</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2025 Zero to Client · by <a href="https://instagram.com/mgvoid">@mgvoid</a></div>
+  <div style="display:flex;gap:24px;">
+    <a href="#">Terms</a>
+    <a href="#">Privacy</a>
+    <a href="https://instagram.com/mgvoid">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = document.querySelectorAll('.module-card');
+        cards.forEach((card, idx) => {
+          setTimeout(() => card.classList.add('visible'), idx * 100);
+        });
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const first = document.querySelector('.module-card');
+  if (first) observer.observe(first);
+</script>
+
+</body>
+</html>
